@@ -32,6 +32,7 @@ import {
 } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 import classes from './HeaderMegaMenu.module.css';
+import Link from 'next/link';
 
 const mockdata = [
   {
@@ -97,9 +98,9 @@ export function HeaderMegaMenu() {
           <MantineLogo size={30} />
 
           <Group h="100%" gap={0} visibleFrom="sm">
-            <a href="#" className={classes.link}>
+            <Link href={'/'} className={classes.link}>
               Home
-            </a>
+            </Link>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href="#" className={classes.link}>
@@ -144,12 +145,12 @@ export function HeaderMegaMenu() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
-            </a>
+            <Link href="/contact-us" className={classes.link}>
+              Contact Us
+            </Link>
+            <Link href="/privacy-policy" className={classes.link}>
+              Privacy Statement
+            </Link>
           </Group>
 
           <Group visibleFrom="sm">

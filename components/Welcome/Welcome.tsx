@@ -1,5 +1,6 @@
 import { Title, Text, Anchor } from '@mantine/core';
 import classes from './Welcome.module.css';
+import Link from 'next/link';
 
 export function Welcome() {
   return (
@@ -11,12 +12,8 @@ export function Welcome() {
         </Text>
       </Title>
       <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        This starter Next.js project includes a minimal setup for server side rendering, if you want
-        to learn more on Mantine + Next.js integration follow{' '}
-        <Anchor href="https://mantine.dev/guides/next/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit page.tsx file.
+        Get your insurance claim approved with the help of specially trained AI bot suggestions and industry experts.        
+        . To get started <Link href={'/signup'}><Anchor component='button' underline='never'>Register</Anchor></Link> your acconut now to talk to our AI bot / expert team.
       </Text>
     </>
   );
