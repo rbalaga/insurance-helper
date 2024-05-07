@@ -1,3 +1,5 @@
+'use client';
+
 import { useToggle, upperFirst } from '@mantine/hooks';
 import { useForm } from '@mantine/form';
 import {
@@ -14,15 +16,11 @@ import {
 } from '@mantine/core';
 import { useEffect } from 'react';
 import { GoogleButton } from './GoogleButton';
-import { TwitterButton } from './TwitterButton';
-import { AuthenticationPagesProps } from '@/interfaces/common';
+import { AuthTypes, AuthenticationPagesProps } from '@/interfaces/common';
+import Link from 'next/link';
 
 export function AuthenticationForm(props: AuthenticationPagesProps) {
-  const [type, toggle] = useToggle(['login', 'register']);
-
-  useEffect(() => {
-    toggle(props.authType || 'login');
-  }, []);
+  const type = props.authType;
 
   const form = useForm({
     initialValues: {
@@ -46,14 +44,13 @@ export function AuthenticationForm(props: AuthenticationPagesProps) {
 
       <Group grow mb="md" mt="md">
         <GoogleButton radius="xl">Google</GoogleButton>
-        <TwitterButton radius="xl">Twitter</TwitterButton>
       </Group>
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
       <form onSubmit={form.onSubmit(() => {})}>
         <Stack>
-          {type === 'register' && (
+          {type === 'signup' && (
             <TextInput
               label="Name"
               placeholder="Your name"
@@ -83,7 +80,7 @@ export function AuthenticationForm(props: AuthenticationPagesProps) {
             radius="md"
           />
 
-          {type === 'register' && (
+          {type === 'signup' && (
             <Checkbox
               label="I accept terms and conditions"
               checked={form.values.terms}
@@ -93,11 +90,13 @@ export function AuthenticationForm(props: AuthenticationPagesProps) {
         </Stack>
 
         <Group justify="space-between" mt="xl">
-          <Anchor component="button" type="button" c="dimmed" onClick={() => toggle()} size="xs">
-            {type === 'register'
-              ? 'Already have an account? Login'
-              : "Don't have an account? Register"}
-          </Anchor>
+          <Link href={type === 'signup' ? '/login' : '/signup'}>
+            <Anchor component="a" type="button" c="dimmed" size="xs" underline="never">
+              {type === 'signup'
+                ? 'Already have an account? Login'
+                : "Don't have an account? Register"}
+            </Anchor>
+          </Link>
           <Button type="submit" radius="xl">
             {upperFirst(type)}
           </Button>

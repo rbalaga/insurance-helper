@@ -1,6 +1,7 @@
 import { Welcome } from '../components/Welcome/Welcome';
 import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 import { HeaderMegaMenu } from '@/components/HeaderMegaMenu/HeaderMegaMenu';
+import { FeaturesCards } from '@/components/FeaturesCards/FeaturesCards';
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       <HeaderMegaMenu />
       <Welcome />
       <ColorSchemeToggle />
+      <FeaturesCards />
     </>
   );
 }

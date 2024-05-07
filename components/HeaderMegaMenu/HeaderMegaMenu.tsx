@@ -155,9 +155,9 @@ export function HeaderMegaMenu() {
           <Group visibleFrom="sm">
             <Button
               variant="default"
-              onClick={() => router.push('/signin')}>Log in
+              onClick={() => router.push('/login')}>Log in
             </Button>
-            <Button onClick={() => router.push('/register')}>Sign up</Button>
+            <Button onClick={() => router.push('/signup')}>Sign up</Button>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
