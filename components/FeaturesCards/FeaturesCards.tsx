@@ -55,11 +55,11 @@ export function FeaturesCards() {
 
   return (
     <Container size="lg" py="xl">
-      <Group justify="center">
+      {/* <Group justify="center">
         <Badge variant="filled" size="lg">
           Best company ever
         </Badge>
-      </Group>
+      </Group> */}
 
       <Title order={2} className={classes.title} ta="center" mt="sm">
         Integrate effortlessly with any technology stack

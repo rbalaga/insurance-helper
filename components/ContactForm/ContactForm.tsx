@@ -50,7 +50,7 @@ export function ContactForm() {
           <Textarea
             required
             label="Your message"
-            placeholder="I want to order your goods"
+            placeholder="I need help with insurance claim"
             minRows={4}
             mt="md"
             classNames={{ input: classes.input, label: classes.inputLabel }}
